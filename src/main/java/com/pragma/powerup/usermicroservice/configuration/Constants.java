@@ -30,4 +30,8 @@ public class Constants {
     public static final String SWAGGER_LICENSE_NAME_MESSAGE = "Apache 2.0";
     public static final String SWAGGER_LICENSE_URL_MESSAGE = "http://springdoc.org";
     public static final String SWAGGER_TERMS_OF_SERVICE_MESSAGE = "http://swagger.io/terms/";
+    public static final String EMPTY_FIELD_MESSAGE = "The field cannot be empty";
+    public static final String INVALID_FORMAT_MESSAGE = "Invalid format";
+    public static final String INVALID_FORMAT_EMAIL_MESSAGE = "Invalid format email";
+    public static final String INVALID_FORMAT_PHONE_MESSAGE = "Invalid format phone";
 }
