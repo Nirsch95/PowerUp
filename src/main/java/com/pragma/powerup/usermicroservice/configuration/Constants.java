@@ -34,4 +34,5 @@ public class Constants {
     public static final String INVALID_FORMAT_MESSAGE = "Invalid format";
     public static final String INVALID_FORMAT_EMAIL_MESSAGE = "Invalid format email";
     public static final String INVALID_FORMAT_PHONE_MESSAGE = "Invalid format phone";
+    public static final String INVALID_VALUE_ROL = "Invalid value id";
 }
