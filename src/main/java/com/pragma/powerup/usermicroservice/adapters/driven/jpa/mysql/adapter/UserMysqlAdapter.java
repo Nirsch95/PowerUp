@@ -15,10 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.pragma.powerup.usermicroservice.configuration.Constants.CLIENT_ROLE_ID;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.EMPLOYEE_ROLE_ID;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.MAX_PAGE_SIZE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.PROVIDER_ROLE_ID;
+import static com.pragma.powerup.usermicroservice.configuration.Constants.*;
 
 @RequiredArgsConstructor
 @Transactional
@@ -37,43 +34,5 @@ public class UserMysqlAdapter implements IUserPersistencePort {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(userEntityMapper.toEntity(user));
-    }
-
-    @Override
-    public void deleteUser(User user) {
-        if (userRepository.findByIdAndRoleEntityId(user.getId(), user.getRole().getId()).isPresent()) {
-            userRepository.deleteByIdAndRoleEntityId(user.getId(), user.getRole().getId());
-        }
-        else {
-            throw new UserNotFoundException();
-        }
-    }
-
-    @Override
-    public List<User> getAllProviders(int page) {
-        Pageable pagination = PageRequest.of(page, MAX_PAGE_SIZE);
-        List<UserEntity> userEntityList = userRepository.findAllByRoleEntityId(PROVIDER_ROLE_ID, pagination);
-        if (userEntityList.isEmpty()) {
-            throw new NoDataFoundException();
-        }
-        return userEntityMapper.toUserList(userEntityList);
-    }
-
-    @Override
-    public User getProvider(Long id) {
-        UserEntity userEntity = userRepository.findByIdAndRoleEntityId(id, PROVIDER_ROLE_ID).orElseThrow(UserNotFoundException::new);
-        return userEntityMapper.toUser(userEntity);
-    }
-
-    @Override
-    public User getEmployee(Long id) {
-        UserEntity userEntity = userRepository.findByIdAndRoleEntityId(id, EMPLOYEE_ROLE_ID).orElseThrow(UserNotFoundException::new);
-        return userEntityMapper.toUser(userEntity);
-    }
-
-    @Override
-    public User getClient(Long id) {
-        UserEntity userEntity = userRepository.findByIdAndRoleEntityId(id, CLIENT_ROLE_ID).orElseThrow(UserNotFoundException::new);
-        return userEntityMapper.toUser(userEntity);
     }
 }

@@ -19,7 +19,7 @@ public class UserRequestDto {
     private String surname;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
     @Pattern(regexp = "\\d*", message = Constants.INVALID_FORMAT_MESSAGE)
-    @Column(unique = true, nullable = false, length = 20)
+    @Max(value = 20, message = Constants.INVALID_VALUE_DNI_NUMBER)
     private String dniNumber;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
     @Pattern(regexp = "^\\+?[0-9]{1,12}$", message = Constants.INVALID_FORMAT_PHONE_MESSAGE)
