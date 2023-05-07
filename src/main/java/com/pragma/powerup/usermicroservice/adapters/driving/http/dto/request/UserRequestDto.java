@@ -32,7 +32,6 @@ public class UserRequestDto {
     private String mail;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
     private String password;
-    @NotNull
     @Min(value = 1, message = Constants.INVALID_VALUE_ROL)
     @Max(value = 4, message = Constants.INVALID_VALUE_ROL)
     private Long idRole;

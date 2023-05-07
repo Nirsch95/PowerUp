@@ -35,4 +35,10 @@ public class UserMysqlAdapter implements IUserPersistencePort {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(userEntityMapper.toEntity(user));
     }
+
+    @Override
+    public User getOwner(Long id) {
+        UserEntity userEntity = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
+        return userEntityMapper.toUser(userEntity);
+    }
 }

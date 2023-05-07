@@ -30,6 +30,11 @@ public class UserUseCase implements IUserServicePort {
         validateAge(user);
     }
 
+    @Override
+    public User getUser(Long id) {
+        return userPersistencePort.getOwner(id);
+    }
+
     public void validateAge(User user){
         LocalDate localDateNow = LocalDate.now();
         LocalDate birthdateConverted = user.getBirthdate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusDays(1);
