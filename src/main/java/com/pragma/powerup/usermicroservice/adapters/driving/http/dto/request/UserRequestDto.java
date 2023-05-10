@@ -22,7 +22,7 @@ public class UserRequestDto {
     @Max(value = 20, message = Constants.INVALID_VALUE_DNI_NUMBER)
     private String dniNumber;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
-    @Pattern(regexp = "^\\+?[0-9]{1,12}$", message = Constants.INVALID_FORMAT_PHONE_MESSAGE)
+    @Pattern(regexp = "^\\+?[0-9]{12}$", message = Constants.INVALID_FORMAT_PHONE_MESSAGE)
     private String phone;
     @NotNull
     @Past
