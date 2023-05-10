@@ -7,7 +7,6 @@ import com.pragma.powerup.usermicroservice.domain.exceptions.RoleCanNotBeYounger
 import com.pragma.powerup.usermicroservice.domain.exceptions.RoleNotAllowedForCreationOwnerException;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
