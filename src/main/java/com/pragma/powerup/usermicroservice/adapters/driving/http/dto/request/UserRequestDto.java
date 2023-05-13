@@ -1,12 +1,9 @@
 package com.pragma.powerup.usermicroservice.adapters.driving.http.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pragma.powerup.usermicroservice.configuration.Constants;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 

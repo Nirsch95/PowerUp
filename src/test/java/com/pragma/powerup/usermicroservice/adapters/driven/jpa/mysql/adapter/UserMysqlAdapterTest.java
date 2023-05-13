@@ -23,7 +23,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class UserMysqlAdapterTest {
+class UserMysqlAdapterTest {
 
     @Mock
     private IUserRepository userRepository;
@@ -45,7 +45,7 @@ public class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given a user when saveUser then save the user in the repository")
-    public void saveUserTest() {
+    void saveUserTest() {
         // Arrange
         User user = new User(1L,"John", "Doe", "12345678A",
                 "123456789", new Date(90,1,1), "john.doe@example.com",
@@ -66,7 +66,7 @@ public class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given an existing user dni number when saveUser then throw UserAlreadyExistsException")
-    public void saveUserWithExistingDniNumberTest() {
+    void saveUserWithExistingDniNumberTest() {
         // Arrange
         User user = new User(1L,"John", "Doe", "12345678A",
                 "123456789", new Date(90,1,1), "john.doe@example.com",
@@ -79,7 +79,7 @@ public class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given an existing user email when saveUser then throw MailAlreadyExistsException")
-    public void saveUserWithExistingEmailTest() {
+    void saveUserWithExistingEmailTest() {
         // Arrange
         User user = new User(1L,"John", "Doe", "12345678A",
                 "123456789", new Date(90,1,1), "john.doe@example.com",

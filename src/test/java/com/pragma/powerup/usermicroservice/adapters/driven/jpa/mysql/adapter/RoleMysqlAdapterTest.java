@@ -20,7 +20,7 @@ import com.pragma.powerup.usermicroservice.domain.model.Role;
 import com.pragma.powerup.usermicroservice.domain.spi.IRolePersistencePort;
 import org.mockito.Spy;
 
-public class RoleMysqlAdapterTest {
+class RoleMysqlAdapterTest {
 
     @Mock
     private IRoleRepository roleRepository;
@@ -38,7 +38,7 @@ public class RoleMysqlAdapterTest {
     }
 
     @Test
-    public void shouldGetAllRolesSuccessfully() {
+    void shouldGetAllRolesSuccessfully() {
         // Arrange
         RoleEntity roleEntity1 = new RoleEntity();
         roleEntity1.setId(1L);
@@ -75,7 +75,7 @@ public class RoleMysqlAdapterTest {
     }
 
     @Test
-    public void shouldThrowNoDataFoundExceptionWhenNoRolesAreFound() {
+    void shouldThrowNoDataFoundExceptionWhenNoRolesAreFound() {
         // Arrange
         when(roleRepository.findAll()).thenReturn(Arrays.asList());
         when(roleEntityMapper.toRoleList(Arrays.asList())).thenReturn(Arrays.asList());

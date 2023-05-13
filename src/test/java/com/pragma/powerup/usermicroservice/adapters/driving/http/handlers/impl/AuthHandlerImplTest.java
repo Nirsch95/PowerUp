@@ -23,7 +23,7 @@ import com.pragma.powerup.usermicroservice.adapters.driving.http.dto.response.Jw
 import com.pragma.powerup.usermicroservice.configuration.security.jwt.JwtProvider;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthHandlerImplTest {
+class AuthHandlerImplTest {
 
     @Mock
     private AuthenticationManager authenticationManager;
@@ -35,7 +35,7 @@ public class AuthHandlerImplTest {
     private AuthHandlerImpl authHandler;
 
     @Test
-    public void login_shouldReturnJwtResponseDto_whenValidUserCredentialsProvided() {
+    void login_shouldReturnJwtResponseDto_whenValidUserCredentialsProvided() {
         // Arrange
         String token = "tokenTest";
         LoginRequestDto loginRequestDto = new LoginRequestDto("123", "123");

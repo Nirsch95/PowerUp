@@ -15,7 +15,7 @@ import com.pragma.powerup.usermicroservice.adapters.driving.http.mapper.IUserRes
 
 import java.util.Date;
 
-public class UserHandlerImplTest {
+class UserHandlerImplTest {
 
     private UserHandlerImpl userHandler;
 
@@ -35,7 +35,7 @@ public class UserHandlerImplTest {
     }
 
     @Test
-    public void saveUser_ShouldCallSaveUserInServicePort() {
+    void saveUser_ShouldCallSaveUserInServicePort() {
         // Arrange
         UserRequestDto userRequestDto = new UserRequestDto("John", "Doe", "12345678A",
                 "123456789", new Date(90,1,1), "john.doe@example.com",

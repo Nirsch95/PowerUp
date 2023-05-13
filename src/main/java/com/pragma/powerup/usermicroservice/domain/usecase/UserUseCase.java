@@ -23,8 +23,7 @@ public class UserUseCase implements IUserServicePort {
 
     @Override
     public void saveUser(User user) {
-        if (user.getRole().getId()
-                != Constants.OWNER_ROLE_ID) {
+        if (user.getRole().getId().equals(Constants.OWNER_ROLE_ID)) {
             throw new RoleNotAllowedForCreationOwnerException();
         }
         validateAge(user);

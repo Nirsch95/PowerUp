@@ -32,7 +32,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void saveUserOwner_validOwnerUser_callsPersistencePort() {
+    void saveUserOwner_validOwnerUser_callsPersistencePort() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383",
                 new Date(90, 1, 1),"9239292","299293",
@@ -46,7 +46,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void saveUserOwner_invalidRoleUser_throwsRoleNotCreated() {
+    void saveUserOwner_invalidRoleUser_throwsRoleNotCreated() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383",
                 new Date(90, 1, 1),"9239292","299293",
@@ -57,7 +57,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void validateAge_validOwnerAge_callsPersistencePort() {
+    void validateAge_validOwnerAge_callsPersistencePort() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383",
                 new Date(100, 1, 1),"9239292","299293",
@@ -71,7 +71,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void validateAge_invalidOwnerAge_throwsOwnerMustBeOfLegalAge() {
+    void validateAge_invalidOwnerAge_throwsOwnerMustBeOfLegalAge() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383",
                 new Date(120, 1, 1),"9239292","299293",

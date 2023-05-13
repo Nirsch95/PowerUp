@@ -21,7 +21,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class UserRestControllerTest {
+class UserRestControllerTest {
 
     @Mock
     private IUserHandler userHandler;
