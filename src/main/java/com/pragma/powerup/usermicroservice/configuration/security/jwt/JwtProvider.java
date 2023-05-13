@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class JwtProvider {
-    private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     @Value("${jwt.secret}")
     private String secret;
@@ -75,7 +75,6 @@ public class JwtProvider {
             JWTClaimsSet claims = jwt.getJWTClaimsSet();
             String nombreUsuario = claims.getSubject();
             List<String> roles = claims.getStringListClaim("roles");
-            //List<String> roles = (List<String>) claims.getClaim("roles");
 
             return Jwts.builder()
                     .setSubject(nombreUsuario)

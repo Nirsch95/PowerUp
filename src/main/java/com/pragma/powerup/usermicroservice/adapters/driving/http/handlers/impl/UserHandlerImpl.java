@@ -9,8 +9,6 @@ import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class UserHandlerImpl implements IUserHandler {
@@ -25,27 +23,7 @@ public class UserHandlerImpl implements IUserHandler {
     }
 
     @Override
-    public void deleteUser(UserRequestDto userRequestDto) {
-        userServicePort.deleteUser(userRequestMapper.toUser(userRequestDto));
-    }
-
-    @Override
-    public List<UserResponseDto> getProvider(Integer page) {
-        return userResponseMapper.toResponseList(userServicePort.getAllProviders(page));
-    }
-
-    @Override
-    public UserResponseDto getProvider(Long id) {
-        return userResponseMapper.toResponse(userServicePort.getProvider(id));
-    }
-
-    @Override
-    public UserResponseDto getEmployee(Long id) {
-        return userResponseMapper.toResponse(userServicePort.getEmployee(id));
-    }
-
-    @Override
-    public UserResponseDto getClient(Long id) {
-        return userResponseMapper.toResponse(userServicePort.getClient(id));
+    public UserResponseDto getUser(Long id) {
+        return userResponseMapper.toResponse(userServicePort.getUser(id));
     }
 }
