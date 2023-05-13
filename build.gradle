@@ -51,8 +51,13 @@ jacocoTestReport {
 	afterEvaluate {
 		classDirectories.setFrom(files(classDirectories.files.collect{
 			fileTree(dir: it, exclude: ['com/pragma/powerup/usermicroservice/configuration',
-			'com/pragma/powerup/usermicroservice/adapters/driven/jpa/mysql/mappers',
-			'com/pragma/powerup/usermicroservice/adapters/driving/http/mapper'])
+										'com/pragma/powerup/usermicroservice/adapters/driven/jpa',
+										'com/pragma/powerup/usermicroservice/adapters/driving/http/mapper',
+										'com/pragma/powerup/usermicroservice/domain/model',
+										'com/pragma/powerup/usermicroservice/adapters/driving/http/dto/response',
+										'com/pragma/powerup/usermicroservice/adapters/driving/http/handlers',
+										'com/pragma/powerup/usermicroservice/adapters/driving/http/exceptions',
+										'com/pragma/powerup/usermicroservice/adapters/driving/http/adapter'])
 		}))
 	}
 }
