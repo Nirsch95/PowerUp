@@ -75,11 +75,13 @@ public class JwtProvider {
             JWT jwt = JWTParser.parse(jwtResponseDto.getToken());
             JWTClaimsSet claims = jwt.getJWTClaimsSet();
             String nombreUsuario = claims.getSubject();
+            Long userId = claims.getLongClaim("id");
             List<String> roles = claims.getStringListClaim("roles");
 
             return Jwts.builder()
                     .setSubject(nombreUsuario)
                     .claim("roles", roles)
+                    .claim("id", userId)
                     .setIssuedAt(new Date())
                     .setExpiration(new Date(new Date().getTime() + expiration))
                     .signWith(SignatureAlgorithm.HS256, secret.getBytes())
