@@ -25,7 +25,7 @@ public class UserRequestDto {
     @Past
     private Date birthdate;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
-    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}$", message = Constants.INVALID_FORMAT_EMAIL_MESSAGE)
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", message = Constants.INVALID_FORMAT_EMAIL_MESSAGE)
     private String mail;
     @NotEmpty(message = Constants.EMPTY_FIELD_MESSAGE)
     private String password;
