@@ -40,6 +40,7 @@ public class JwtProvider {
                 .setSubject(usuarioPrincipal.getUsername())
                 .claim("id", usuarioPrincipal.getUserId())
                 .claim("roles", roles)
+                .claim("mail", usuarioPrincipal.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 180))
                 .signWith(SignatureAlgorithm.HS256, secret.getBytes())
@@ -47,7 +48,7 @@ public class JwtProvider {
     }
 
     public String getNombreUsuarioFromToken(String token) {
-        return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody().get("mail", String.class);
     }
 
     public boolean validateToken(String token) {
@@ -76,12 +77,14 @@ public class JwtProvider {
             JWTClaimsSet claims = jwt.getJWTClaimsSet();
             String nombreUsuario = claims.getSubject();
             Long userId = claims.getLongClaim("id");
+            String mail = claims.getStringClaim("mail");
             List<String> roles = claims.getStringListClaim("roles");
 
             return Jwts.builder()
                     .setSubject(nombreUsuario)
                     .claim("roles", roles)
                     .claim("id", userId)
+                    .claim("mail", mail)
                     .setIssuedAt(new Date())
                     .setExpiration(new Date(new Date().getTime() + expiration))
                     .signWith(SignatureAlgorithm.HS256, secret.getBytes())
