@@ -31,6 +31,12 @@ public class UserHandlerImpl implements IUserHandler {
     }
 
     @Override
+    public void saveClient(UserRequestDto userRequestDto) {
+        userRequestDto.setIdRole(Constants.CLIENT_ROLE_ID);
+        userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));
+    }
+
+    @Override
     public UserResponseDto getUser(Long id) {
         return userResponseMapper.toResponse(userServicePort.getUser(id));
     }
