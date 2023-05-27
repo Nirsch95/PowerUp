@@ -40,14 +40,14 @@ class AuthHandlerImplTest {
         String token = "tokenTest";
         LoginRequestDto loginRequestDto = new LoginRequestDto("123", "123");
         UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
-                .username(loginRequestDto.getUserDni())
+                .username(loginRequestDto.getMail())
                 .password(loginRequestDto.getPassword())
                 .authorities(Collections.emptyList())
                 .build();
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         when(authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequestDto.getUserDni(), loginRequestDto.getPassword())))
+                new UsernamePasswordAuthenticationToken(loginRequestDto.getMail(), loginRequestDto.getPassword())))
                 .thenReturn(authentication);
         when(jwtProvider.generateToken(authentication)).thenReturn(token);
 

@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class LoginRequestDtoTest {
     @Test
     void testGetters() {
-        LoginRequestDto loginRequestDto = new LoginRequestDto("123", "1234");
+        LoginRequestDto loginRequestDto = new LoginRequestDto("mail@mail.com", "1234");
 
-        assertEquals("123", loginRequestDto.getUserDni());
+        assertEquals("mail@mail.com", loginRequestDto.getMail());
         assertEquals("1234", loginRequestDto.getPassword());
     }
 }

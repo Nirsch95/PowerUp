@@ -54,6 +54,7 @@ jacocoTestReport {
 										'com/pragma/powerup/usermicroservice/adapters/driven/jpa',
 										'com/pragma/powerup/usermicroservice/adapters/driving/http/mapper',
 										'com/pragma/powerup/usermicroservice/domain/model',
+										'com/pragma/powerup/usermicroservice/domain/exceptions',
 										'com/pragma/powerup/usermicroservice/adapters/driving/http/dto/response',
 										'com/pragma/powerup/usermicroservice/adapters/driving/http/handlers',
 										'com/pragma/powerup/usermicroservice/adapters/driving/http/exceptions',

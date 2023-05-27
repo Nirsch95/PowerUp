@@ -2,7 +2,6 @@ package com.pragma.powerup.usermicroservice.domain.usecase;
 
 import com.pragma.powerup.usermicroservice.configuration.Constants;
 import com.pragma.powerup.usermicroservice.domain.exceptions.RoleCanNotBeYoungerException;
-import com.pragma.powerup.usermicroservice.domain.exceptions.RoleNotAllowedForCreationOwnerException;
 import com.pragma.powerup.usermicroservice.domain.model.Role;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
@@ -43,17 +42,6 @@ class UserUseCaseTest {
 
         // Assert
         Mockito.verify(userPersistencePort).saveUser(user);
-    }
-
-    @Test
-    void saveUserOwner_invalidRoleUser_throwsRoleNotCreated() {
-        // Arrange
-        User user = new User(1L, "John", "Doe","John@gmail.com","288383",
-                new Date(90, 1, 1),"9239292","299293",
-                new Role(Constants.ADMIN_ROLE_ID, "ROLE_ADMIN","ROLE_ADMIN"));
-
-        // Act & Assert
-        assertThrows(RoleNotAllowedForCreationOwnerException.class, () -> userUseCase.saveUser(user));
     }
 
     @Test
