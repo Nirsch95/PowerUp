@@ -7,7 +7,6 @@ import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.UserAlreadyExistsException;
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.UserNotFoundException;
 import com.pragma.powerup.usermicroservice.domain.exceptions.RoleCanNotBeYoungerException;
-import com.pragma.powerup.usermicroservice.domain.exceptions.RoleNotAllowedForCreationOwnerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -83,12 +82,7 @@ public class ControllerAdvisor {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, ROLE_NOT_FOUND_MESSAGE));
     }
-    @ExceptionHandler(RoleNotAllowedForCreationOwnerException.class)
-    public ResponseEntity<Map<String, String>> handleRoleNotAllowedForCreationOwnerException(
-            RoleNotAllowedForCreationOwnerException roleNotAllowedForCreationOwnerException) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, ROLE_NOT_ALLOWED_MESSAGE));
-    }
+
     @ExceptionHandler(RoleCanNotBeYoungerException.class)
     public ResponseEntity<Map<String, String>> handleRoleCanNotBeYoungerException(
             RoleCanNotBeYoungerException roleCanNotBeYoungerException) {
