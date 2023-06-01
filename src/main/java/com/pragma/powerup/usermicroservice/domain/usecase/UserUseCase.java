@@ -1,10 +1,7 @@
 package com.pragma.powerup.usermicroservice.domain.usecase;
 
-
-import com.pragma.powerup.usermicroservice.configuration.Constants;
 import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
 import com.pragma.powerup.usermicroservice.domain.exceptions.RoleCanNotBeYoungerException;
-import com.pragma.powerup.usermicroservice.domain.exceptions.RoleNotAllowedForCreationOwnerException;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,9 +20,6 @@ public class UserUseCase implements IUserServicePort {
 
     @Override
     public void saveUser(User user) {
-        if (user.getRole().getId().equals(Constants.OWNER_ROLE_ID)) {
-            throw new RoleNotAllowedForCreationOwnerException();
-        }
         validateAge(user);
     }
 
