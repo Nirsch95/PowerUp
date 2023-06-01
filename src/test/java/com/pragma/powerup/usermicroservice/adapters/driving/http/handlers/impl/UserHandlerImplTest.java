@@ -39,12 +39,12 @@ class UserHandlerImplTest {
         // Arrange
         UserRequestDto userRequestDto = new UserRequestDto("John", "Doe", "12345678A",
                 "123456789", new Date(90,1,1), "john.doe@example.com",
-                "password123", 1L);
+                "password123", 2L);
         User user = new User();
         when(userRequestMapper.toUser(userRequestDto)).thenReturn(user);
 
         // Act
-        userHandler.saveUser(userRequestDto);
+        userHandler.saveOwner(userRequestDto);
 
         // Assert
         verify(userServicePort, times(1)).saveUser(user);

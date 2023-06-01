@@ -31,21 +31,50 @@ class UserRestControllerTest {
 
     private UserRequestDto userRequestDto;
 
-    @BeforeEach
-    void setUp() {
+    @Test
+    @DisplayName("Given a valid user, when saveOwner is called, then a CREATED response is returned")
+    void testSaveOwner() {
+        // Arrange
         UserRequestDto userRequestDto = new UserRequestDto("John","Doe", "johndoe@example.com",
                 "+123456789", new Date(90, 1, 1), "1234567890A", "mypassword",
-                1L);
+                2L);
+        Mockito.doNothing().when(userHandler).saveOwner(userRequestDto);
+
+        // Act
+        ResponseEntity<Map<String, String>> responseEntity = userRestController.saveOwner(userRequestDto);
+
+        // Assert
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+        assertEquals(Constants.USER_CREATED_MESSAGE, responseEntity.getBody().get(Constants.RESPONSE_MESSAGE_KEY));
+    }
+    @Test
+    @DisplayName("Given a valid user, when saveEmployee is called, then a CREATED response is returned")
+    void testSaveEmployee() {
+        // Arrange
+        UserRequestDto userRequestDto = new UserRequestDto("John","Doe", "johndoe@example.com",
+                "+123456789", new Date(90, 1, 1), "1234567890A", "mypassword",
+                3L);
+        Mockito.doNothing().when(userHandler).saveOwner(userRequestDto);
+
+        // Act
+        ResponseEntity<Map<String, String>> responseEntity = userRestController.saveOwner(userRequestDto);
+
+        // Assert
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+        assertEquals(Constants.USER_CREATED_MESSAGE, responseEntity.getBody().get(Constants.RESPONSE_MESSAGE_KEY));
     }
 
     @Test
-    @DisplayName("Given a valid user, when saveUser is called, then a CREATED response is returned")
-    void testSaveUser() {
+    @DisplayName("Given a valid user, when saveClient is called, then a CREATED response is returned")
+    void testSaveClient() {
         // Arrange
-        Mockito.doNothing().when(userHandler).saveUser(userRequestDto);
+        UserRequestDto userRequestDto = new UserRequestDto("John","Doe", "johndoe@example.com",
+                "+123456789", new Date(90, 1, 1), "1234567890A", "mypassword",
+                4L);
+        Mockito.doNothing().when(userHandler).saveOwner(userRequestDto);
 
         // Act
-        ResponseEntity<Map<String, String>> responseEntity = userRestController.saveUser(userRequestDto);
+        ResponseEntity<Map<String, String>> responseEntity = userRestController.saveOwner(userRequestDto);
 
         // Assert
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
