@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserUseCaseTest {
@@ -67,5 +68,35 @@ class UserUseCaseTest {
 
         // Act & Assert
         assertThrows(RoleCanNotBeYoungerException.class, () -> userUseCase.validateAge(user));
+    }
+
+    @Test
+    void getUser_WhenValidId_ShouldReturnUser() {
+        // Arrange
+        Long userId = 1L;
+        User user = new User();
+        user.setId(userId);
+        when(userPersistencePort.getOwner(userId)).thenReturn(user);
+
+        // Act
+        User result = userUseCase.getUser(userId);
+
+        // Assert
+        assertEquals(user, result);
+    }
+
+    @Test
+    void getUserByDni_WhenValidDni_ShouldReturnUser() {
+        // Arrange
+        String dni = "12345678";
+        User user = new User();
+        user.setDniNumber(dni);
+        when(userPersistencePort.getUserByDni(dni)).thenReturn(user);
+
+        // Act
+        User result = userUseCase.getUserByDni(dni);
+
+        // Assert
+        assertEquals(user, result);
     }
 }
