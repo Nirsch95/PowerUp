@@ -22,4 +22,26 @@ class UserRequestDtoTest {
         assertEquals(new Date(90,1,1), userRequestDto.getBirthdate());
         assertEquals(1L, userRequestDto.getIdRole());
     }
+
+    @Test
+    void testSetters() {
+        UserRequestDto userRequestDto = new UserRequestDto();
+        userRequestDto.setName("John");
+        userRequestDto.setSurname("Doe");
+        userRequestDto.setMail("john.doe@example.com");
+        userRequestDto.setPhone("123456789");
+        userRequestDto.setDniNumber("12345678A");
+        userRequestDto.setPassword("password123");
+        userRequestDto.setBirthdate(new Date(90,1,1));
+        userRequestDto.setIdRole(1L);
+
+        assertEquals("John", userRequestDto.getName());
+        assertEquals("Doe", userRequestDto.getSurname());
+        assertEquals("john.doe@example.com", userRequestDto.getMail());
+        assertEquals("123456789", userRequestDto.getPhone());
+        assertEquals("12345678A", userRequestDto.getDniNumber());
+        assertEquals("password123", userRequestDto.getPassword());
+        assertEquals(new Date(90,1,1), userRequestDto.getBirthdate());
+        assertEquals(1L, userRequestDto.getIdRole());
+    }
 }

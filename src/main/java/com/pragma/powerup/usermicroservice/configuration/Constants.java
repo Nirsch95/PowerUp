@@ -20,7 +20,7 @@ public class Constants {
     public static final String MAIL_ALREADY_EXISTS_MESSAGE = "A person with that mail already exists";
     public static final String ROLE_NOT_FOUND_MESSAGE = "No role found with the id provided";
     public static final String ROLE_NOT_ALLOWED_MESSAGE = "No permission granted to create users with this role";
-    public static final String ROLE_NOT_ALLOWED_YOUNGER_MESSAGE = "The owner have to be a 18 year older";
+    public static final String ROLE_NOT_ALLOWED_YOUNGER_MESSAGE = "The user have to be a 18 year older";
     public static final String USER_ALREADY_EXISTS_MESSAGE = "A user already exists with the role provided";
     public static final String USER_NOT_FOUND_MESSAGE = "No user found with the role provided";
     public static final String SWAGGER_TITLE_MESSAGE = "User API Pragma Power Up";

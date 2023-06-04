@@ -8,6 +8,6 @@ public interface IUserHandler {
     void saveOwner(UserRequestDto userRequestDto);
     void saveEmployee(UserRequestDto userRequestDto);
     void saveClient(UserRequestDto userRequestDto);
-
     UserResponseDto getUser(Long id);
+    UserResponseDto getUserByDni(String dni);
 }

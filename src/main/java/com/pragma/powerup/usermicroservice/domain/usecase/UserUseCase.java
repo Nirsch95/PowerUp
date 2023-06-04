@@ -28,6 +28,11 @@ public class UserUseCase implements IUserServicePort {
         return userPersistencePort.getOwner(id);
     }
 
+    @Override
+    public User getUserByDni(String dni) {
+        return userPersistencePort.getUserByDni(dni);
+    }
+
     public void validateAge(User user){
         LocalDate localDateNow = LocalDate.now();
         LocalDate birthdateConverted = user.getBirthdate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusDays(1);
