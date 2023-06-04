@@ -8,6 +8,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 public class UserResponseDto {
+    private String id;
     private String name;
     private String surname;
     private String dniNumber;

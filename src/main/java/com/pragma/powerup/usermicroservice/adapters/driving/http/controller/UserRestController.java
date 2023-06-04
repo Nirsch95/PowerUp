@@ -84,7 +84,19 @@ public class UserRestController {
                             content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
     @GetMapping("/get/{id}")
     @SecurityRequirement(name = "jwt")
-    public ResponseEntity<UserResponseDto> getOwner(@PathVariable Long id) {
+    public ResponseEntity<UserResponseDto> getUser(@PathVariable Long id) {
         return ResponseEntity.ok(userHandler.getUser(id));
+    }
+
+    @Operation(summary = "Get a User by Dni",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "User returned",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class))),
+                    @ApiResponse(responseCode = "404", description = "User not found",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
+    @GetMapping("/getDni/{dni}")
+    @SecurityRequirement(name = "jwt")
+    public ResponseEntity<UserResponseDto> getUserByDni(@PathVariable String dni) {
+        return ResponseEntity.ok(userHandler.getUserByDni(dni));
     }
 }
